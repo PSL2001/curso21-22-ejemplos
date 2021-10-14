@@ -4,7 +4,10 @@ if (!isset($_SESSION['usuario'])) {
     header("Location:login.php");
     die();
 }
-$color = ($_SESSION['perfil'] == 1) ? "blanchedalmond" : "crimson";
+if($_SESSION['perfil']!=0){
+    header("Location:index.php");
+    die();
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -17,10 +20,10 @@ $color = ($_SESSION['perfil'] == 1) ? "blanchedalmond" : "crimson";
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <!-- cdn fontawesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Ejemplo</title>
+    <title>admin</title>
 </head>
 
-<body style="background-color: <?php echo $color ?>;">
+<body style="background-color: crimson;">
 
     <!-- navbar -->
     <ul class="nav justify-content-end">
@@ -35,15 +38,8 @@ $color = ($_SESSION['perfil'] == 1) ? "blanchedalmond" : "crimson";
     <!-- Fin Barra -->
 
     <div class="container mt-4">
-        <?php
-        if ($_SESSION['perfil'] == 0) {
-            echo <<< TEXTO
-        <a href="admin.php" class="btn btn-success">Adminstracion</a>
-        <a href="#" class="btn btn-primary">Gestion de Usuarios</a>
-        TEXTO;
-        }
-        ?>
-        <a href="#" class="btn btn-secondary">Gestionar Perfil</a>
+       
+        <a href="index.php" class="btn btn-secondary"><i class="fas fa-home"></i> Inicio</a>
     </div>
 
 </body>
