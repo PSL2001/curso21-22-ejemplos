@@ -6,6 +6,8 @@ class Persona1
     public $nombre;
     protected $puesto;
     private $dni;
+    private $username;
+    private $mail;
 
     public function __construct() //$n, $p, $d
     {
@@ -83,7 +85,7 @@ class Persona1
     }
 
     /**
-     * Set the value of contador1
+     * Set the value of cecho $persona1->mail;ontador1
      *
      * @return  self
      */ 
@@ -92,4 +94,17 @@ class Persona1
         self::$contador1 = $contador1;
 
     }
+
+    //getter y setter (métodos mágicos)
+    
+    public function __get($atributo){
+       // echo "<br>Intento de lectura no autorizado del atributo: <b>$atributo</b> Privado !!!!!";
+    }
+    
+    public function __set($atributo, $valor){
+       // echo "<br>Intento de escritura no autorizado del atributo: <b>$atributo</b> Privado !!!!!";
+       // echo "Se le esta intentando asignar el valor: $valor";
+    }
+    
+    
 }
